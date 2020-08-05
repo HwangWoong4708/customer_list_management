@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const data = fs.readFileSync("./database.json");
 const conf = JSON.parse(data);
 const mysql = require("mysql");
-
 const connection = mysql.createConnection({
   host: conf.host,
   user: conf.user,
@@ -32,7 +31,7 @@ app.get("/api/customers", (req, res) => {
 app.use("/image", express.static("./upload"));
 
 app.post("/api/customers", upload.single("image"), (req, res) => {
-  let sql = "INSERT INTO CUSTOMER VALUE (null,?,?,?,?, ?)";
+  let sql = "INSERT INTO CUSTOMER VALUE (null,?,?,?,?,?)";
   let image = "/image/" + req.file.filename;
   let name = req.body.name;
   let birthday = req.body.birthday;

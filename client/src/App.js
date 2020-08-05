@@ -34,6 +34,7 @@ class App extends React.Component {
       completed: 0,
     };
   }
+
   stateRefresh = () => {
     this.setState({
       customers: "",
@@ -43,7 +44,6 @@ class App extends React.Component {
       .then(res => this.setState({ customers: res }))
       .catch(err => console.log(err));
   };
-
   componentDidMount() {
     this.timer = setInterval(this.progress, 20);
     this.callApi()

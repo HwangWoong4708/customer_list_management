@@ -17,7 +17,7 @@ class CustomerAdd extends React.Component {
     e.preventDefault();
     this.addCustomer().then(response => {
       console.log(response.data);
-      this.props.stateRefresh(); //전체페이지 새로고침 없이 데이터부분만 새로고침.
+      this.props.stateRefresh();
     });
     this.setState({
       file: null,
