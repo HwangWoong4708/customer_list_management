@@ -16,6 +16,14 @@ class CustomerDelete extends React.Component {
     };
   }
 
+  deleteCustomer(id) {
+    // /api/customer/7 : 고객데이터가 7인 데이터 삭제
+    const url = "/api/customers/" + id;
+    fetch(url, {
+      method: "DELETE",
+    });
+    this.props.stateRefresh();
+  }
   handleClickOpen = () => {
     this.setState({
       open: true,
@@ -26,14 +34,6 @@ class CustomerDelete extends React.Component {
       open: false,
     });
   };
-  deleteCustomer(id) {
-    // /api/customer/7 : 고객데이터가 7인 데이터 삭제
-    const url = "/api/customers/" + id;
-    fetch(url, {
-      method: "DELETE",
-    });
-    this.props.stateRefresh();
-  }
 
   render() {
     return (
